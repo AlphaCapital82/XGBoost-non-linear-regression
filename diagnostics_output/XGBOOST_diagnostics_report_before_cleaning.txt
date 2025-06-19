@@ -1,0 +1,102 @@
+=== DIAGNOSTICS REPORT ===
+
+1. Missing Values per Column:
+ticker                          0
+firm_id                         0
+year                            0
+stock_return                    0
+croic                          30
+roic                           15
+ebitda_yield                  160
+book_to_market                 21
+vix_index_inverted              0
+one_year_momentum               0
+stock_volatility_inverted       8
+high_yield_spread_inverted      0
+income_quality                176
+debt_ratio_directional          9
+
+2. Summary Statistics:
+                             count      mean       std         min       25%       50%       75%         max
+croic                       4489.0  0.098185  1.224037  -19.683479  0.007201  0.065315  0.142384   55.229164
+roic                        4489.0  0.063645  0.225197   -5.411650  0.028876  0.064212  0.113493    3.123585
+ebitda_yield                4489.0  0.104509  1.983375  -36.390000  0.050000  0.080000  0.110000  125.700000
+vix_index_inverted          4489.0 -0.077140  0.377689   -0.900934 -0.304281  0.003804  0.299223    0.342789
+one_year_momentum           4489.0  0.150221  0.588287   -0.960000 -0.090000  0.100000  0.320000   26.950000
+stock_volatility_inverted   4489.0  0.073881  0.126579    0.001500  0.029196  0.053235  0.087936    6.097363
+high_yield_spread_inverted  4489.0 -0.025404  0.262677   -0.361295 -0.325815 -0.113119  0.134858    0.401319
+income_quality              4489.0  1.452042  3.073077 -116.826600  0.955200  1.439000  2.099200   79.497500
+
+3. Data Types:
+croic                         float64
+roic                          float64
+ebitda_yield                  float64
+vix_index_inverted            float64
+one_year_momentum             float64
+stock_volatility_inverted     float64
+high_yield_spread_inverted    float64
+income_quality                float64
+
+4. Variance Inflation Factor (VIF):
+                   feature      VIF
+                     croic 1.013373
+                      roic 1.084214
+              ebitda_yield 1.017874
+        vix_index_inverted 2.038446
+         one_year_momentum 1.096406
+ stock_volatility_inverted 1.067508
+high_yield_spread_inverted 1.976013
+            income_quality 1.085814
+
+5. Duplicate firm-year entries: 0
+
+6. Firm Coverage:
+count    482.000000
+mean       9.313278
+std        1.358499
+min        1.000000
+25%        9.000000
+50%       10.000000
+75%       10.000000
+max       10.000000
+
+7. Skewness:
+croic: 23.586
+roic: -6.439
+ebitda_yield: 55.294
+vix_index_inverted: -0.808
+one_year_momentum: 23.247
+stock_volatility_inverted: 29.877
+high_yield_spread_inverted: 0.286
+income_quality: -9.021
+
+8. Normality (Shapiro-Wilk p-values):
+croic: 0.0
+roic: 0.0
+ebitda_yield: 0.0
+vix_index_inverted: 0.0
+one_year_momentum: 0.0
+stock_volatility_inverted: 0.0
+high_yield_spread_inverted: 0.0
+income_quality: 0.0
+
+9. Outlier Summary:
+croic: IQR-outliers = 553, Z-score outliers = 35
+roic: IQR-outliers = 473, Z-score outliers = 47
+ebitda_yield: IQR-outliers = 420, Z-score outliers = 7
+vix_index_inverted: IQR-outliers = 0, Z-score outliers = 0
+one_year_momentum: IQR-outliers = 164, Z-score outliers = 22
+stock_volatility_inverted: IQR-outliers = 299, Z-score outliers = 21
+high_yield_spread_inverted: IQR-outliers = 0, Z-score outliers = 0
+income_quality: IQR-outliers = 630, Z-score outliers = 38
+
+10. Variable Cleaning Recommendations:
+- croic is highly skewed (skew=23.59): Consider log or IHS transform
+- roic is highly skewed (skew=-6.44): Consider log or IHS transform
+- ebitda_yield is highly skewed (skew=55.29): Consider log or IHS transform
+- one_year_momentum is highly skewed (skew=23.25): Consider log or IHS transform
+- stock_volatility_inverted is highly skewed (skew=29.88): Consider log or IHS transform
+- income_quality is highly skewed (skew=-9.02): Consider log or IHS transform
+- croic has 35 Z-outliers: Consider capping or filtering extreme values
+- roic has 47 Z-outliers: Consider capping or filtering extreme values
+- income_quality has 38 Z-outliers: Consider capping or filtering extreme values

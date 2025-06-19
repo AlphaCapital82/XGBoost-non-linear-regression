@@ -1,0 +1,75 @@
+=== DIAGNOSTICS REPORT ===
+
+1. Missing Values:
+stock_return                    0
+book_to_market                 21
+vix_index_inverted              0
+high_yield_spread_inverted      0
+debt_ratio_directional          9
+croic_ihs                      30
+roic_ihs                       15
+ebitda_ihs                    160
+momentum_ihs                   46
+volatility_ihs                  8
+income_quality_ihs            176
+
+2. Summary Statistics:
+       book_to_market  vix_index_inverted  high_yield_spread_inverted  debt_ratio_directional    croic_ihs     roic_ihs   ebitda_ihs  momentum_ihs  volatility_ihs  income_quality_ihs
+count     4827.000000         4848.000000                 4848.000000             4839.000000  4818.000000  4833.000000  4688.000000   4802.000000     4840.000000         4672.000000
+mean         0.476453           -0.079099                   -0.026590               -0.292814     0.080953     0.064736     0.079277      0.109763        0.072647            0.980910
+std          0.492300            0.380482                    0.261977                0.219903     0.287748     0.116463     0.084571      0.312314        0.065920            0.973591
+min        -12.770000           -0.900934                   -0.361295               -2.438740    -1.306872    -0.476344    -0.295673     -0.852805        0.005069           -2.508487
+25%          0.210000           -0.304281                   -0.325815               -0.411225     0.006710     0.024494     0.049979     -0.099834        0.029788            0.833926
+50%          0.410000            0.003804                   -0.113119               -0.280210     0.065343     0.060980     0.079915      0.089879        0.054253            1.155182
+75%          0.680000            0.299223                    0.134858               -0.121605     0.143220     0.110657     0.109779      0.295673        0.090412            1.483682
+max          6.950000            0.342789                    0.401319                0.000000     1.409039     0.415347     0.445152      1.155296        0.368713            2.812789
+
+3. Skewness:
+book_to_market: -4.163236
+vix_index_inverted: -0.802349
+high_yield_spread_inverted: 0.291211
+debt_ratio_directional: -1.653073
+croic_ihs: -0.083071
+roic_ihs: -1.122696
+ebitda_ihs: -0.099205
+momentum_ihs: 0.323739
+volatility_ihs: 2.180575
+income_quality_ihs: -1.581346
+
+4. Normality (Shapiro-Wilk p-values):
+book_to_market: nan
+vix_index_inverted: 2.484e-52
+high_yield_spread_inverted: 6.862e-51
+debt_ratio_directional: nan
+croic_ihs: nan
+roic_ihs: nan
+ebitda_ihs: nan
+momentum_ihs: nan
+volatility_ihs: nan
+income_quality_ihs: nan
+
+5. VIF:
+                   feature      VIF
+            book_to_market 1.892736
+        vix_index_inverted 2.227239
+high_yield_spread_inverted 2.027210
+    debt_ratio_directional 1.896631
+                 croic_ihs 1.292196
+                  roic_ihs 2.028669
+                ebitda_ihs 2.582948
+              momentum_ihs 1.293751
+            volatility_ihs 2.087379
+        income_quality_ihs 1.954451
+
+6. Outlier Summary:
+              Variable   IQR-outliers  Z-outliers
+        book_to_market            182          56
+    vix_index_inverted              0           0
+high_yield_spread_inverted              0           0
+debt_ratio_directional             84          53
+             croic_ihs            609         166
+              roic_ihs            478         151
+            ebitda_ihs            436         147
+          momentum_ihs             96          24
+        volatility_ihs            325         126
+    income_quality_ihs            671         126
