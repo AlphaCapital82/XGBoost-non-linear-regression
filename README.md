@@ -1,3 +1,41 @@
+Diagnostics script: What This Script Does
+
+This Python script checks the quality of your cleaned stock dataset before running any models. It looks at missing data, normality, outliers, and multicollinearity. The results are saved in a report called 'diagnostics_report.txt'.
+
+It uses the file: dataset/stocks_clean2_cleaned.xlsx, sheet: 'ark'.
+
+Step-by-Step Overview
+
+1. Loads the Excel file
+   It reads the Excel file using pandas and makes sure decimal numbers are formatted correctly.
+
+2. Checks for missing values
+   It counts how many missing values (empty cells) are in each column. This helps you see if any important data is missing.
+
+3. Shows basic statistics
+   For each variable, it shows the average, standard deviation, minimum, maximum, and percentiles. This gives a quick overview of the data.
+
+4. Measures skewness
+   It checks if the numbers in a column are spread evenly or if they are pulled more to one side (left or right). Strong skew may mean you need to transform the data.
+
+5. Tests for normal distribution
+   It runs a test (Shapiro-Wilk) to check if each column looks like a normal distribution. A low score means the data is probably not normal.
+
+6. Checks for multicollinearity (VIF)
+   It looks at whether any of the columns are strongly related to each other. If two variables are almost the same, it can mess up regression results.
+
+7. Finds outliers
+   It shows how many extreme values are found in each column using two methods:
+   - IQR (based on percentiles)
+   - Z-score (based on standard deviations)
+
+Why This Is Useful
+
+This script helps you understand problems in your data before you use it in a model. It tells you if you have missing values, strange numbers, or highly related columns. That way you can clean or adjust your data to get better results.
+
+Output
+
+The report is saved as: diagnostics_report.txt
 
 
 
@@ -49,3 +87,6 @@ Summary
 - Output: 'dataset/stocks_clean2_cleaned.xlsx'
 - Helps reduce skewness and outliers in the data
 - Improves modeling quality and consistency
+
+
+
