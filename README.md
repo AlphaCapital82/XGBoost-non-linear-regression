@@ -1,4 +1,5 @@
-Diagnostics script: What This Script Does
+Diagnostics script:
+What This Script Does
 
 This Python script checks the quality of your cleaned stock dataset before running any models. It looks at missing data, normality, outliers, and multicollinearity. The results are saved in a report called 'diagnostics_report.txt'.
 
@@ -89,4 +90,53 @@ Summary
 - Improves modeling quality and consistency
 
 
+XGBoost script explanation:
+
+What This Script Does
+
+This Python script builds a stock return prediction model using XGBoost. It uses financial and macroeconomic variables along with five interaction terms involving momentum. The script performs model training, tuning, evaluation, and feature interpretation. It is based on the cleaned dataset: stocks_clean2_cleaned.xlsx (sheet: 'ark').
+
+Step-by-Step Summary
+
+1. Loads and prepares the data
+   The script reads the Excel file, removes rows without stock return, converts all input variables to numeric, and adds interaction terms that combine momentum with other variables.
+
+2. Splits data into training and testing
+   Training is done on all data from year 2020 and earlier. Testing is done on data after 2020.
+
+3. Defines inputs and target
+   Features include original variables plus interaction terms. The target is one-year stock return. Missing values are filled with column averages from training data.
+
+4. Fits an initial XGBoost model
+   A basic XGBoost model is trained using fixed parameters. Performance is measured using RMSE (error) and R-squared (fit).
+
+5. Shows feature importance (initial model)
+   The most important features are displayed based on gain (how much each variable improved the model).
+
+6. Tunes the model using GridSearchCV
+   A wide set of XGBoost parameters are tested using cross-validation to find the best combination.
+
+7. Trains a tuned XGBoost model with early stopping
+   The best parameters from tuning are used to train a new model with early stopping to avoid overfitting.
+
+8. Evaluates the tuned model
+   RMSE and R-squared are reported for both training and test data. The script also prints the generalization gap (difference between train and test error).
+
+9. Displays feature importance (tuned model)
+   Shows which features contributed most to the tuned model using a bar chart based on gain.
+
+10. Generates Partial Dependence Plots (PDP)
+    PDPs are created to visualize how specific variables (and combinations) affect the predicted stock return. This includes:
+    - One-way PDPs for variables like momentum, roic, book-to-market, etc.
+    - Two-way PDPs showing interactions like momentum × VIX and momentum × book-to-market.
+
+Why This Is Useful
+
+This script helps build and interpret a machine learning model for predicting stock returns. It uses interaction terms, hyperparameter tuning, and diagnostic plots to make the model both powerful and explainable.
+
+Output
+
+- Model evaluation (printout)
+- Feature importance chart
+- Partial dependence plots (for individual and paired variables)
 
